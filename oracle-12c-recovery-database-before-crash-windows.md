@@ -40,7 +40,7 @@ flowchart TD
     C --> D[SHUTDOWN IMMEDIATE on restored VM<br/>CDB root]
     D --> E[Gather archive log files needed:<br/>from restore point up to target time]
     E --> F[STARTUP MOUNT - CDB root]
-    F --> G[Query V$ARCHIVED_LOG<br/>for target date's archive logs]
+    F --> G[Query V$ARCHIVED_LOG<br/>for the target date archive logs]
     G --> H[RECOVER DATABASE UNTIL CANCEL<br/>USING BACKUP CONTROLFILE]
     H --> I{Oracle requests next<br/>archive log file}
     I -- supply file path --> I
