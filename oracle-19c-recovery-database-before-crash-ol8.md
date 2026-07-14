@@ -70,7 +70,8 @@ sequenceDiagram
     RMAN-->>DBA: control file restored
     DBA->>RMAN: RESTORE DATABASE
     RMAN-->>DBA: CDB + PDB datafiles restored from last good backup
-    DBA->>RMAN: SET UNTIL TIME "..."; RECOVER DATABASE
+    DBA->>RMAN: SET UNTIL TIME "..."
+    DBA->>RMAN: RECOVER DATABASE
     RMAN->>CDB: apply archive logs up to target time
     CDB-->>RMAN: recovery complete to target time
     DBA->>RMAN: ALTER DATABASE OPEN RESETLOGS
