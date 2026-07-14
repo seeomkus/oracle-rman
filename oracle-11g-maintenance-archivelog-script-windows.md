@@ -55,7 +55,7 @@ sequenceDiagram
     TS->>BAT: Trigger execution (weekly schedule)
     BAT->>BAT: Set ORACLE_SID / ORACLE_HOME / PATH
     BAT->>LOG: Write [START] entry with timestamp
-    BAT->>RMAN: rman target / @maint_archive_log.rman log=<logfile>
+    BAT->>RMAN: rman target / @maint_archive_log.rman log=LOGFILE
     RMAN->>DB: CROSSCHECK ARCHIVELOG ALL
     DB-->>RMAN: control file synced with disk state
     RMAN->>DB: DELETE EXPIRED ARCHIVELOG ALL

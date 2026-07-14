@@ -62,11 +62,11 @@ sequenceDiagram
     DBA->>RMAN: rman target /
     RMAN->>DB: SHUTDOWN IMMEDIATE (if running)
     RMAN->>DB: STARTUP MOUNT
-    DBA->>RMAN: RESTORE CONTROLFILE FROM '<CONTROLFILE_BACKUP_PATH>' (if needed)
+    DBA->>RMAN: RESTORE CONTROLFILE FROM CONTROLFILE_BACKUP_PATH (if needed)
     RMAN-->>DBA: control file restored
     DBA->>RMAN: RESTORE DATABASE
     RMAN-->>DBA: datafiles restored from last good backup
-    DBA->>RMAN: RECOVER DATABASE UNTIL TIME "to_date('<RECOVERY_TARGET_TIME>','YYYY-MM-DD HH24:MI:SS')"
+    DBA->>RMAN: RECOVER DATABASE UNTIL TIME to_date(RECOVERY_TARGET_TIME, 'YYYY-MM-DD HH24:MI:SS')
     RMAN->>DB: apply archive logs up to target time
     DB-->>RMAN: recovery complete to target time
     DBA->>RMAN: ALTER DATABASE OPEN RESETLOGS

@@ -66,7 +66,7 @@ sequenceDiagram
     DBA->>RMAN: rman target /  (connects to CDB root)
     RMAN->>CDB: SHUTDOWN IMMEDIATE (if running)
     RMAN->>CDB: STARTUP MOUNT
-    DBA->>RMAN: RESTORE CONTROLFILE FROM '<CONTROLFILE_BACKUP_PATH>' (if needed)
+    DBA->>RMAN: RESTORE CONTROLFILE FROM CONTROLFILE_BACKUP_PATH (if needed)
     RMAN-->>DBA: control file restored
     DBA->>RMAN: RESTORE DATABASE
     RMAN-->>DBA: CDB + PDB datafiles restored from last good backup
